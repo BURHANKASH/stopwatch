@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="stopwatch.css" rel="stylesheet">
+</head>
+<body>
+    <div class="main">
+    <h1 class="h1">StopWatch</h1>
+    <p id="para"><span id="sec">00</span>:<span id="milisec">00</span></p>
+    <div id="forbtn" class="secondary">
+        <button id="start">Start</button>
+        <button id="stop">Stop</button>
+        <button id="reset">Reset</button>
+    </div>
+</div>
+    <script>
+        var second = 00;
+        var milisecond =00;
+        var s = document.getElementById("sec");
+        var ms = document.getElementById("milisec");
+        var buttonstart = document.getElementById("start");
+        var buttonstop = document.getElementById("stop");
+        var buttonreset = document.getElementById("reset");
+        var StopWatch;
+        buttonstart.onclick = function(){
+            clearInterval;
+            StopWatch = setInterval(startfunc,10);
+        }
+        function startfunc(){
+            milisecond++;
+            if(milisecond<=9){
+                ms.innerHTML="0" + milisecond;
+            }
+              if(milisecond > 9){
+                ms.innerHTML = milisecond
+            }
+              if (milisecond >99){
+                second++;
+                s.innerHTML = "0" +second;
+                milisecond = 0;
+                ms.innerHTML = "0" + 0
+            }
+            if(second > 9){
+                s.innerHTML = second;
+            }
+        }
+        buttonstop.onclick = function(){
+            clearInterval(StopWatch);
+        }
+        buttonreset.onclick = function (){
+            clearInterval(StopWatch);
+            milisecond ="00";
+            second ="00";
+            s.innerHTML = milisecond;
+            ms.innerHTML =second;
+
+        }
+    </script>
+</body>
+</html>
